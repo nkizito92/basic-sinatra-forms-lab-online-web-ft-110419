@@ -7,14 +7,19 @@ class App < Sinatra::Base
     binding.pry
   end 
   
-  get '/newteam/:name' do
-    @has_field = params[:name]
-    @has_field
-    erb :newteam
-  end 
-  
-  post '/newteam' do 
+ post "/team" do
+    @name = params["name"]
+    @coach = params["coach"]
+    @pg = params["pg"]
+    @sg = params["sg"]
+    @pf = params["pf"]
+    @sf = params["sf"]
+    @c = params["c"]
     erb :team
+  end
+  
+  get "/team" do 
+    erb :team 
   end 
 
 end
